@@ -1,4 +1,4 @@
-# Aligning geographic entities from historical maps for building knowledge graphs
+# MapKnowledgeBase
 
 ### Overall description
 
