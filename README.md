@@ -38,12 +38,15 @@ The process of doing experiments is first to choose the best textual label match
 1. Identify alignments of entities with textual label
 
 Call the function ‘execute_alignment’ in Python file ‘execute_align.py’. There are 5 parameters in this function. The first two parameters are a Python List of the paths of all digitized files of two historical maps (Users can find the paths in the folder ‘data’). The third parameter is the path of corresponding ground truth which can also be found in the folder ‘data’. The fourth parameter is name of textual label match method, and users can choose them from the file text_label_match.py. The fifth parameter is to present whether users only obtain the result of textual label match. This step is just to find the best textual label matching method; thus, the fifth parameter should be ‘True’.
+
 2. Similarity computation
 
 Still call the function ‘execute_alignment’. Users just need to input first four parameters. Specifically, the fourth parameter should be the best textual label method selected in the first step (For the provided datasets, the best textual label method is ‘simple_str_case_punc’).  Then, this program will automatically compute control points and decide whether affine transformation can be performed. Suitable similarity metrics will be selected, and similarity matrix will be computed automatically according to whether entities are overlaid. The similarity matrix will be stored in a Python Pickle file.
+
 3. Obtain the results of distance-based methods
 
 Call the function ‘alignment_classification’. The first parameter is the path of Python Pickle file generated in last step. The second parameter should be ‘dist’ in this step. The third parameter is the path of result file of textual label match. The fourth parameter is the path of ground truth. Then users run the code and can obtain the results of distance-based methods.
+
 4. Obtain results of all classification methods
 
 Still call the function ‘alignment_classification’. Users need to modify the second parameter to tell the program which classification method will be used to make a decision. For methods which combine the distance-based method and other method, such as ‘dist_topo’, ‘dist_approx’, and ‘dist_topo_approx’, the fifth parameter should be decided to show which distance metric will be used (There are four types of distance metrics. For the provided datasets, the best distance metric should be ‘dist_hdv’). Then users can obtain results of all proposed methods.
